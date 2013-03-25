@@ -7,7 +7,14 @@ This is software module for small board, based on Cypress FX2 microcontroller an
 
 The precompiled firmware for FX2 (txS_1024.ihx) is already included. You also don't need any libraries, except usb. The software tested on Linux environment.
 
-You will have 1638400 Hz bandwidth for your signal. The samplerate is fixed to 2048 complex samples per second. The input format - is "sc16" - short complex 16 bit. More info at http://tipok.org.ua/node/41
+You will have 1638400 Hz bandwidth for your signal. The samplerate is fixed to 2048000 complex samples per second. The input format - is "sc16" - short complex 16 bit. More info at http://tipok.org.ua/node/41
+
+You have 3 parameters to configure gnuradio module:
+------------
+ * device_id - device number to use, 0-by default
+ * frequency - output central frequency, 145,500 MHz by default
+ * gain - output scale factor, 1.0 by default. From [0.0...2.0] range
+
 
 To build this project, you need this tools:
 ------------
