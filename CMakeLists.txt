@@ -192,3 +192,8 @@ INSTALL(
     FILES ${CMAKE_CURRENT_SOURCE_DIR}/txS_1024.ihx
     DESTINATION share/libgnuradio-ssrptx
 )
+
+INSTALL(
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/10-ssrptx.rules
+    DESTINATION /etc/udev/rules.d
+)
