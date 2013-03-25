@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<block>
+  <name>ssrptx</name>
+  <key>ssrptx_ssrptx</key>
+  <category>ssrptx</category>
+  <import>import ssrptx</import>
+  <make>ssrptx.ssrptx($device_id, $freq, $iq_gain)</make>
+    <param>
+        <name>Device Id</name>
+        <key>device_id</key>
+        <value>0</value>
+        <type>int</type>
+        <hide>#if $device_id() then '0' else 'part'#</hide>
+    </param>
+    <param>
+        <name>Frequency (Hz)</name>
+        <key>freq</key>
+        <value>194064000</value>
+        <type>real</type>
+    </param>
+    <param>
+        <name>IQ gain</name>
+        <key>iq_gain</key>
+        <value>1.0</value>
+        <type>real</type>
+    </param>
+    <check>($freq &gt;= 8) and ($freq &lt;= 2.5e8)</check>
+    <check>($iq_gain &gt;= 0.0) and ($iq_gain &lt;= 2.0)</check>
+
+  <sink>
+    <name>in</name>
+    <!--<type>type:sc16</type>-->
+    <type>sc16</type>
+  </sink>
+    <doc>
+This block wraps the Simple Software Radio Perpiheral HF-VHF Transmitter, that works as USB quadrature player into one convenient GNU Radio sink block.
+
+The sample rate is fixed at 2048 ksps.
+
+To find the device number on Linux type:
+   lsusb
+
+The I/Q gain is a set of scale factor 0.0 ... 2.0, default: 1.0.
+	</doc>
+</block>
