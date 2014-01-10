@@ -521,7 +521,7 @@ fusb_ephandle_linux::read (void *buffer, int nbytes)
       if (!reload_read_buffer ())
 	return -1;
 
-    int m = std::min ((long) nbytes - n, d_read_buffer_end - d_read_buffer);
+    int m = std::min ((long) (nbytes - n), (long) (d_read_buffer_end - d_read_buffer));
 
     memcpy (&dst[n], d_read_buffer, m);
     d_read_buffer += m;
